@@ -52,8 +52,8 @@ public class Car {
     public void setYear(int year) { this.year = year; }
 
     // Car information
-    @Override
-    public String toString(){
+    //@Override
+    public String getSummary(){
         return " Vin \t : " + this.vin + ", Make \t : " + this.make + ", Model \t : " + this.model + ", Year \t : " + this.year;
     }
 

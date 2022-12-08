@@ -9,16 +9,12 @@ package projectstartup;
  *
  * @author hmouissa
  */
-import java.awt.event.ActionListener;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
-import java.io.*;
-import java.util.*;
-import java.awt.*;
 import javax.swing.*;
 
 public class Main extends javax.swing.JFrame{
-    private static HashMap<String, Car> inventory;
+    private static HashMap<String, Car> carInventory;
     private JPanel jPanel;
     private JButton addButton;
     private JButton updateButton;
@@ -31,13 +27,13 @@ public class Main extends javax.swing.JFrame{
     private JTextField txtModel;
     private JTextField txtYear;
 
-    public Main() {
-
+    // Constructor
+    public Main(){
+        //initialize the inventory
+        carInventory = new HashMap<String, Car>();
     }
 
     public static void main(String[] args) {
-       //initialize the inventory
-       inventory = new HashMap<String, Car>();
 
        //Present the customer with a choice of vehicles
 		String[]  choices = {"Add Car", "Remove Car", "Update Car", "List Cars", "Clear Cars", "Find Car", "Exit"};
@@ -86,7 +82,7 @@ public class Main extends javax.swing.JFrame{
         //add code to ask user for entry
 
         //add code to read the data entered and use split to break it into variables
-        
+
         //add code to save the data entered by the user to the hashmap as a VIN and a CAR object
         
     }
@@ -109,15 +105,17 @@ public class Main extends javax.swing.JFrame{
     
     private static void clearCars(){
         //add code to clear the hashmap
-    
+        carInventory.clear();
     }
     
-    private static void findCar(){
+    public static String findCar(){
         //add code to find the car in the hashmap
-
+        String vin = null;
+        String carInfomation = carInventory.get(vin).getSummary();
+        return carInfomation;
     }
     private static void exitApplication(){
-        JOptionPane.showMessageDialog(null, " Thank you for using the MaxCar Application. " + inventory.size() + " cars saved!...EXITING...");
+        JOptionPane.showMessageDialog(null, " Thank you for using the MaxCar Application. " + carInventory.size() + " cars saved!...EXITING...");
         System.exit(0);
     }
     
